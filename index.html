@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>仙台・安比高原 — 2026 冬季滑雪之旅</title>
+<meta name="description" content="2026/2/23–3/2 仙台・盛岡・安比高原滑雪之旅行程" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --snow:#f4f7fa;
+  --paper:#fbfcfd;
+  --ink:#1b2534;
+  --ink-soft:#48566b;
+  --mist:#8a97ab;
+  --line:#e2e8f0;
+  --ai:#24476b;          /* 藍 indigo */
+  --ai-bright:#3a6ea5;
+  --gold:#a9885b;        /* warm accent */
+  --gold-soft:#c7ad86;
+  --snow-blue:#dbe6f2;
+  --space:clamp(4.5rem,3rem+7vw,9rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans TC",system-ui,sans-serif;
+  background:var(--snow);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--ai);color:#fff}
+h1,h2,h3{font-family:"Noto Serif JP",serif;font-weight:500;line-height:1.25;letter-spacing:.01em}
+a{color:inherit;text-decoration:none}
+
+/* ---------- snow canvas ---------- */
+#snow{position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.7}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100svh;display:flex;flex-direction:column;
+  justify-content:center;padding:clamp(1.5rem,4vw,4rem);
+  background:
+    radial-gradient(120% 80% at 80% -10%,#eaf1f8 0%,transparent 55%),
+    radial-gradient(110% 90% at 10% 110%,#e5edf6 0%,transparent 50%),
+    linear-gradient(160deg,#fbfcfe 0%,#eef3f9 45%,#e4ecf5 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,transparent 60%,rgba(219,230,242,.55) 100%);
+  pointer-events:none;
+}
+/* stylised mountain range */
+.range{position:absolute;left:0;right:0;bottom:0;height:46%;pointer-events:none}
+.range svg{width:100%;height:100%;display:block}
+.hero__mark{
+  position:absolute;top:clamp(1.5rem,4vw,3rem);left:clamp(1.5rem,4vw,4rem);
+  display:flex;align-items:center;gap:.7rem;font-size:.78rem;letter-spacing:.35em;
+  color:var(--ai);text-transform:uppercase;font-weight:500;z-index:3;
+}
+.hero__mark span{width:34px;height:1px;background:var(--gold)}
+.hero__inner{position:relative;z-index:3;max-width:1180px;margin:0 auto;width:100%}
+.hero__kicker{
+  font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.1rem,.7rem+1.4vw,1.7rem);
+  color:var(--gold);letter-spacing:.02em;margin-bottom:.4rem;
+}
+.hero__title{
+  font-size:clamp(3rem,1rem+11vw,9.5rem);font-weight:600;letter-spacing:.02em;
+  color:var(--ink);line-height:.98;
+}
+.hero__title em{font-style:normal;color:var(--ai);display:block}
+.hero__sub{
+  margin-top:clamp(1.4rem,3vw,2.4rem);display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;
+  align-items:baseline;color:var(--ink-soft);
+}
+.hero__sub .big{font-family:"Cormorant Garamond",serif;font-size:clamp(1.6rem,1rem+2vw,2.6rem);color:var(--ink);letter-spacing:.02em}
+.hero__sub .lbl{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);display:block;margin-top:.25rem}
+.hero__route{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-top:2rem;font-size:.95rem;color:var(--ai);font-weight:500}
+.hero__route .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.hero__route .arw{color:var(--gold-soft)}
+.scrollcue{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:3;
+  font-size:.66rem;letter-spacing:.3em;color:var(--mist);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.scrollcue i{width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+/* ---------- sticky day nav ---------- */
+.daynav{position:sticky;top:0;z-index:40;background:rgba(244,247,250,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+  transition:transform .4s var(--ease)}
+.daynav__inner{max-width:1180px;margin:0 auto;display:flex;gap:.4rem;overflow-x:auto;
+  padding:.7rem clamp(1rem,4vw,2rem);scrollbar-width:none}
+.daynav__inner::-webkit-scrollbar{display:none}
+.daynav a{flex:0 0 auto;padding:.42rem .95rem;border-radius:999px;font-size:.82rem;
+  color:var(--ink-soft);border:1px solid transparent;transition:.25s var(--ease);white-space:nowrap}
+.daynav a .d{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--ai);margin-right:.35rem}
+.daynav a:hover{background:#fff;border-color:var(--line)}
+.daynav a.on{background:var(--ai);color:#fff;box-shadow:0 6px 18px -8px var(--ai)}
+.daynav a.on .d{color:var(--gold-soft)}
+
+/* ---------- shared ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.2rem,4vw,2rem)}
+.sec{padding:var(--space) 0}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
+  font-weight:600;display:flex;align-items:center;gap:.8rem;margin-bottom:1.1rem}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
+.sec__title{font-size:clamp(1.9rem,1.2rem+2.6vw,3.3rem);letter-spacing:.01em;margin-bottom:.6rem}
+.sec__lead{color:var(--ink-soft);max-width:44ch;font-size:1.02rem}
+
+/* ---------- overview stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:2.6rem}
+.stat{background:var(--paper);padding:2rem 1.4rem;text-align:center}
+.stat .n{font-family:"Cormorant Garamond",serif;font-size:clamp(2.4rem,1.4rem+3vw,3.6rem);
+  font-weight:600;color:var(--ai);line-height:1}
+.stat .n small{font-size:.9rem;color:var(--gold);font-weight:600;margin-left:.15rem}
+.stat .t{font-size:.8rem;color:var(--mist);letter-spacing:.16em;text-transform:uppercase;margin-top:.7rem}
+
+/* ---------- days ---------- */
+.day{padding:clamp(2.4rem,4vw,3.6rem) 0;border-top:1px solid var(--line)}
+.day__grid{display:grid;grid-template-columns:280px 1fr;gap:clamp(1.6rem,4vw,4rem)}
+.day__head{position:sticky;top:78px;align-self:start}
+.day__no{font-family:"Cormorant Garamond",serif;font-size:clamp(3.6rem,2rem+6vw,6.4rem);
+  font-weight:500;color:var(--snow-blue);line-height:.85;letter-spacing:.02em}
+.day__date{margin-top:.4rem;font-size:1.05rem;font-weight:700;color:var(--ink);letter-spacing:.05em}
+.day__date span{color:var(--gold);font-weight:500;margin-left:.4rem;font-size:.9rem}
+.day__theme{margin-top:.7rem;font-family:"Noto Serif JP",serif;font-size:1.3rem;color:var(--ai)}
+.day__hotel{margin-top:1.1rem;display:flex;gap:.55rem;align-items:flex-start;font-size:.86rem;color:var(--ink-soft);
+  background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem}
+.day__hotel svg{flex:0 0 auto;margin-top:.15rem;color:var(--gold)}
+.day__hotel b{display:block;color:var(--ink);font-weight:600;font-family:"Noto Serif JP",serif}
+
+.time{position:relative;padding-left:1.6rem}
+.time::before{content:"";position:absolute;left:5px;top:.5rem;bottom:.5rem;width:1px;
+  background:linear-gradient(var(--snow-blue),var(--line))}
+.ev{position:relative;padding:.55rem 0 1.35rem}
+.ev::before{content:"";position:absolute;left:-1.6rem;top:.85rem;width:11px;height:11px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--gold-soft);transform:translateX(1px)}
+.ev.key::before{background:var(--ai);border-color:var(--ai)}
+.ev__t{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:.92rem;color:var(--ai);
+  letter-spacing:.05em;margin-bottom:.15rem}
+.ev__c{font-size:1rem;color:var(--ink);font-weight:500}
+.ev__c .tag{display:inline-block;font-size:.68rem;letter-spacing:.12em;padding:.12rem .5rem;border-radius:999px;
+  vertical-align:middle;margin-right:.5rem;font-weight:700;text-transform:uppercase}
+.tag.flight{background:#e7eefb;color:#345}
+.tag.train{background:#eaf5ee;color:#2f6b45}
+.tag.bus{background:#fdf2e4;color:#8a6320}
+.tag.ski{background:#e6f0f7;color:#24476b}
+.tag.food{background:#f8ebe6;color:#9a512f}
+.tag.shrine{background:#efeaf6;color:#5b3f7a}
+.tag.shop{background:#f0f0f2;color:#4a4f5c}
+.ev__c small{display:block;color:var(--mist);font-size:.82rem;font-weight:400;margin-top:.15rem}
+
+/* ---------- highlights ---------- */
+.hl{background:linear-gradient(165deg,#1b2534,#24476b);color:#eef3f9;border-radius:26px;
+  padding:clamp(2.4rem,4vw,4rem);position:relative;overflow:hidden}
+.hl::after{content:"雪";position:absolute;right:-2rem;bottom:-4rem;font-family:"Noto Serif JP",serif;
+  font-size:22rem;color:rgba(255,255,255,.04);line-height:1;pointer-events:none}
+.hl .eyebrow{color:var(--gold-soft)}
+.hl .eyebrow::before{background:var(--gold-soft)}
+.hl__title{color:#fff;font-size:clamp(1.8rem,1.2rem+2.4vw,3rem);margin-bottom:2.4rem}
+.hlgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.4rem;position:relative;z-index:2}
+.hlcard{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:16px;
+  padding:1.6rem;transition:.35s var(--ease)}
+.hlcard:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.hlcard .ic{font-family:"Noto Serif JP",serif;font-size:1.7rem;color:var(--gold-soft);margin-bottom:.7rem}
+.hlcard h3{color:#fff;font-size:1.2rem;margin-bottom:.5rem}
+.hlcard p{color:#c3d0e0;font-size:.9rem;line-height:1.7}
+.hlcard .list{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.hlcard .list span{font-size:.74rem;background:rgba(255,255,255,.08);padding:.2rem .6rem;border-radius:999px;color:#dbe6f2}
+
+/* ---------- hotels ---------- */
+.hotels{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.6rem}
+.hotel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:2rem;
+  transition:.35s var(--ease);position:relative;overflow:hidden}
+.hotel:hover{border-color:var(--gold-soft);box-shadow:0 20px 40px -28px rgba(27,37,52,.4);transform:translateY(-3px)}
+.hotel .loc{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.hotel h3{font-size:1.35rem;margin:.5rem 0 .3rem;color:var(--ink)}
+.hotel .jp{font-size:.86rem;color:var(--mist);font-family:"Noto Serif JP",serif}
+.hotel .meta{margin-top:1.2rem;display:flex;gap:1.6rem;flex-wrap:wrap}
+.hotel .meta .n{font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:var(--ai);font-weight:600}
+.hotel .meta .k{font-size:.72rem;color:var(--mist);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);color:#aeb9c9;padding:clamp(3rem,5vw,5rem) 0 2.4rem;text-align:center}
+.foot__title{font-family:"Noto Serif JP",serif;font-size:clamp(1.6rem,1rem+2vw,2.4rem);color:#fff;margin-bottom:.8rem}
+.foot__route{color:var(--gold-soft);font-family:"Cormorant Garamond",serif;font-size:1.1rem;letter-spacing:.1em;margin-bottom:2rem}
+.foot small{display:block;color:#5f6d80;font-size:.76rem;letter-spacing:.1em;margin-top:2rem}
+
+/* ---------- reveal ---------- */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rev.in{opacity:1;transform:none}
+
+@media(max-width:820px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .day__grid{grid-template-columns:1fr;gap:1.6rem}
+  .day__head{position:static}
+  .day__no{font-size:4.2rem}
+  .hotels{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none;transition:none}
+  #snow{display:none}
+  .scrollcue i{animation:none}
+}
+</style>
+</head>
+<body>
+<canvas id="snow"></canvas>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero__mark"><span></span>Tohoku · Japan · 2026</div>
+  <div class="range" aria-hidden="true">
+    <svg viewBox="0 0 1440 400" preserveAspectRatio="none">
+      <path d="M0,400 L0,250 L180,150 L320,240 L470,120 L620,230 L760,90 L900,220 L1060,140 L1220,250 L1440,160 L1440,400 Z" fill="#d4e0ee" opacity=".7"/>
+      <path d="M0,400 L0,300 L200,220 L360,300 L520,200 L700,300 L860,210 L1040,300 L1240,230 L1440,300 L1440,400 Z" fill="#c2d3e8" opacity=".8"/>
+      <path d="M0,400 L0,340 L240,290 L480,350 L720,300 L960,360 L1200,310 L1440,350 L1440,400 Z" fill="#aec4de"/>
+    </svg>
+  </div>
+  <div class="hero__inner">
+    <p class="hero__kicker rev">Snow &amp; Onsen &amp; Gyutan</p>
+    <h1 class="hero__title rev">仙台<em>安比高原</em></h1>
+    <div class="hero__sub rev">
+      <div><span class="big">2.23</span><span class="lbl">出發 Departure</span></div>
+      <div><span class="big">3.02</span><span class="lbl">回程 Return</span></div>
+      <div><span class="big">8<small>日</small>7<small>夜</small></span><span class="lbl">行程 Duration</span></div>
+      <div><span class="big">3–4<small>天</small></span><span class="lbl">滑雪 Skiing</span></div>
+    </div>
+    <div class="hero__route rev">
+      <span class="dot"></span>台北 TPE<span class="arw">→</span>仙台 SDJ<span class="arw">→</span>盛岡<span class="arw">→</span>安比高原<span class="arw">→</span>仙台<span class="arw">→</span>台北
+    </div>
+  </div>
+  <div class="scrollcue">Scroll<i></i></div>
+</header>
+
+<!-- ===== DAY NAV ===== -->
+<nav class="daynav" id="daynav">
+  <div class="daynav__inner">
+    <a href="#d1"><span class="d">01</span>2/23 抵達仙台</a>
+    <a href="#d2"><span class="d">02</span>2/24 前進安比</a>
+    <a href="#d3"><span class="d">03</span>2/25 滑雪</a>
+    <a href="#d4"><span class="d">04</span>2/26 滑雪</a>
+    <a href="#d5"><span class="d">05</span>2/27 滑雪</a>
+    <a href="#d6"><span class="d">06</span>2/28 返仙台</a>
+    <a href="#d7"><span class="d">07</span>3/1 仙台散策</a>
+    <a href="#d8"><span class="d">08</span>3/2 歸途</a>
+  </div>
+</nav>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="sec wrap">
+  <p class="eyebrow rev">Overview 行程總覽</p>
+  <h2 class="sec__title rev">雪國八日，<br>山與海的味覺之旅</h2>
+  <p class="sec__lead rev">星宇直飛仙台，往北深入岩手・安比高原滑雪三日，回程沿途蒐集御朱印、大啖牛舌與東北美食。一趟結合powder、溫泉與神社的冬季行程。</p>
+  <div class="stats rev">
+    <div class="stat"><div class="n">2</div><div class="t">城市據點</div></div>
+    <div class="stat"><div class="n">2</div><div class="t">精選飯店</div></div>
+    <div class="stat"><div class="n">6<small>+</small></div><div class="t">御朱印神社</div></div>
+    <div class="stat"><div class="n">4<small>回</small></div><div class="t">仙台牛舌</div></div>
+  </div>
+</section>
+
+<!-- ===== DAYS ===== -->
+<section class="wrap">
+
+  <!-- DAY 1 -->
+  <article class="day" id="d1">
+    <div class="day__grid">
+      <div class="day__head rev">
+        <div class="day__no">01</div>
+        <div class="day__date">2 / 23 <span>星期二</span></div>
+        <div class="day__theme">台北 → 仙台</div>
+        <div class="day__hotel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg>
+          <span><b>大和ROYNET飯店 仙台西口 PREMIER</b>ダイワロイネットホテル仙台西口</span>
+        </div>
+      </div>
+      <div class="day__body rev">
+        <div class="time">
+          <div class="ev"><div class="ev__t">07:00</div><div class="ev__c">台中 → 桃園機場</div></div>
+          <div class="ev"><div class="ev__t">09:00</div><div class="ev__c">機場報到 · 登機</div></div>
+          <div class="ev key"><div class="ev__t">11:50 – 16:00</div><div class="ev__c"><span class="tag flight">Flight</span>星宇 JX862 TPE → SDJ<small>桃園 → 仙台</small></div></div>
+          <div class="ev"><div class="ev__t">17:00</div><div class="ev__c">出海關 · 仙台機場 → 仙台車站 · 飯店 Check in</div></div>
+          <div class="ev"><div class="ev__t">19:00</div><div class="ev__c"><span class="tag shop">Shopping</span>市區逛街採買<small>S-PAL · PARCO2</small></div></div>
+          <div class="ev key"><div class="ev__t">21:00</div><div class="ev__c"><span class="tag food">Dinner</span>善治郎<small>仙台牛舌 · 第一夜</small></div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- DAY 2 -->
+  <article class="day" id="d2">
+    <div class="day__grid">
+      <div class="day__head rev">
+        <div class="day__no">02</div>
+        <div class="day__date">2 / 24 <span>星期三</span></div>
+        <div class="day__theme">仙台 → 盛岡 → 安比</div>
+        <div class="day__hotel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg>
+          <span><b>ANA 皇冠假日度假飯店 安比高原</b>ANA Crowne Plaza Resort Appi Kogen</span>
+        </div>
+      </div>
+      <div class="day__body rev">
+        <div class="time">
+          <div class="ev"><div class="ev__t">08:00</div><div class="ev__c">飯店早餐</div></div>
+          <div class="ev key"><div class="ev__t">09:05 – 09:44</div><div class="ev__c"><span class="tag train">JR</span>仙台 → 盛岡</div></div>
+          <div class="ev"><div class="ev__t">10:00</div><div class="ev__c"><span class="tag shrine">御朱印</span>盛岡參拜巡禮<small>盛岡天滿宮 · 住吉神社 · 盛岡八幡宮 · 櫻山神社</small></div></div>
+          <div class="ev key"><div class="ev__t">13:00</div><div class="ev__c"><span class="tag food">Lunch</span>蕎麦喰い処 やまや<small>盛岡蕎麥麵</small></div></div>
+          <div class="ev key"><div class="ev__t">15:00 – 16:10</div><div class="ev__c"><span class="tag bus">Bus</span>盛岡 → 安比高原<small>飯店預約制接駁車</small></div></div>
+          <div class="ev"><div class="ev__t">17:00</div><div class="ev__c">飯店趴趴走 · 溫泉放鬆</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- DAY 3-5 SKI -->
+  <article class="day" id="d3">
+    <div class="day__grid">
+      <div class="day__head rev">
+        <div class="day__no">03</div>
+        <div class="day__date">2 / 25 <span>星期四</span></div>
+        <div class="day__theme">安比高原 · 滑雪</div>
+        <div class="day__hotel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
+          <span><b>ANA Crowne Plaza Resort Appi Kogen</b>連泊 · 安比高原</span>
+        </div>
+      </div>
+      <div class="day__body rev">
+        <div class="time">
+          <div class="ev"><div class="ev__t">08:00</div><div class="ev__c">飯店早餐</div></div>
+          <div class="ev key"><div class="ev__t">全日</div><div class="ev__c"><span class="tag ski">Ski</span>完整滑雪日 ①<small>安比高原優質粉雪 · 中餐山上隨興</small></div></div>
+          <div class="ev"><div class="ev__t">17:00</div><div class="ev__c">溫泉 · 飯店晚餐 · 休息</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day" id="d4">
+    <div class="day__grid">
+      <div class="day__head rev">
+        <div class="day__no">04</div>
+        <div class="day__date">2 / 26 <span>星期五</span></div>
+        <div class="day__theme">安比高原 · 滑雪</div>
+        <div class="day__hotel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
+          <span><b>ANA Crowne Plaza Resort Appi Kogen</b>連泊 · 安比高原</span>
+        </div>
+      </div>
+      <div class="day__body rev">
+        <div class="time">
+          <div class="ev"><div class="ev__t">08:00</div><div class="ev__c">飯店早餐</div></div>
+          <div class="ev key"><div class="ev__t">全日</div><div class="ev__c"><span class="tag ski">Ski</span>完整滑雪日 ②<small>挑戰長距離雪道 · 中餐隨興</small></div></div>
+          <div class="ev"><div class="ev__t">17:00</div><div class="ev__c">溫泉 · 飯店晚餐 · 休息</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day" id="d5">
+    <div class="day__grid">
+      <div class="day__head rev">
+        <div class="day__no">05</div>
+        <div class="day__date">2 / 27 <span>星期六</span></div>
+        <div class="day__theme">安比高原 · 滑雪</div>
+        <div class="day__hotel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
+          <span><b>ANA Crowne Plaza Resort Appi Kogen</b>連泊 · 安比高原</span>
+        </div>
+      </div>
+      <div class="day__body rev">
+        <div class="time">
+          <div class="ev"><div class="ev__t">08:00</div><div class="ev__c">飯店早餐</div></div>
+          <div class="ev key"><div class="ev__t">全日</div><div class="ev__c"><span class="tag ski">Ski</span>完整滑雪日 ③<small>最後衝刺 · 中餐隨興</small></div></div>
+          <div class="ev"><div class="ev__t">17:00</div><div class="ev__c">溫泉 · 飯店晚餐 · 收拾行李</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- DAY 6 -->
+  <article class="day" id="d6">
+    <div class="day__grid">
+      <div class="day__head rev">
+        <div class="day__no">06</div>
+        <div class="day__date">2 / 28 <span>星期日</span></div>
+        <div class="day__theme">安比 → 盛岡 → 仙台</div>
+        <div class="day__hotel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg>
+          <span><b>大和ROYNET飯店 仙台西口 PREMIER</b>ダイワロイネットホテル仙台西口</span>
+        </div>
+      </div>
+      <div class="day__body rev">
+        <div class="time">
+          <div class="ev key"><div class="ev__t">09:00 – 10:10</div><div class="ev__c"><span class="tag bus">Bus</span>安比高原 → 盛岡<small>飯店預約制接駁車</small></div></div>
+          <div class="ev key"><div class="ev__t">11:00</div><div class="ev__c"><span class="tag food">Lunch</span>盛楼閣<small>燒肉 / 冷麵 · 11 點開門</small></div></div>
+          <div class="ev key"><div class="ev__t">13:50 – 14:29</div><div class="ev__c"><span class="tag train">JR</span>盛岡 → 仙台 · 飯店 Check in</div></div>
+          <div class="ev"><div class="ev__t">15:00</div><div class="ev__c"><span class="tag shrine">御朱印</span>仙台參拜<small>榴岡天滿宮 · 仙台東照宮</small></div></div>
+          <div class="ev key"><div class="ev__t">18:00</div><div class="ev__c"><span class="tag food">Dinner</span>閣 名掛丁店<small>仙台牛舌</small></div></div>
+          <div class="ev"><div class="ev__t">20:00</div><div class="ev__c"><span class="tag shop">Shopping</span>唐吉訶德 仙台車站西口本店</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- DAY 7 -->
+  <article class="day" id="d7">
+    <div class="day__grid">
+      <div class="day__head rev">
+        <div class="day__no">07</div>
+        <div class="day__date">3 / 1 <span>星期一</span></div>
+        <div class="day__theme">仙台一日散策</div>
+        <div class="day__hotel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg>
+          <span><b>大和ROYNET飯店 仙台西口 PREMIER</b>ダイワロイネットホテル仙台西口</span>
+        </div>
+      </div>
+      <div class="day__body rev">
+        <div class="time">
+          <div class="ev"><div class="ev__t">09:00</div><div class="ev__c">簡單早餐 · 悠閒起步</div></div>
+          <div class="ev"><div class="ev__t">10:00</div><div class="ev__c"><span class="tag shrine">御朱印</span>仙台參拜<small>大崎八幡宮 · 宮城縣護國神社</small></div></div>
+          <div class="ev key"><div class="ev__t">13:00</div><div class="ev__c"><span class="tag food">Lunch</span>とんかつ牡丹 本店<small>炸豬排</small></div></div>
+          <div class="ev"><div class="ev__t">15:00</div><div class="ev__c"><span class="tag shop">Shopping</span>市區逛街採買<small>PARCO · S-PAL · LOFT</small></div></div>
+          <div class="ev key"><div class="ev__t">20:00</div><div class="ev__c"><span class="tag food">Dinner</span>司 西口名掛丁店<small>仙台牛舌 · 最後一夜</small></div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- DAY 8 -->
+  <article class="day" id="d8">
+    <div class="day__grid">
+      <div class="day__head rev">
+        <div class="day__no">08</div>
+        <div class="day__date">3 / 2 <span>星期二</span></div>
+        <div class="day__theme">仙台 → 台北</div>
+        <div class="day__hotel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          <span><b>歸途 Homeward</b>星宇 JX863 SDJ → TPE</span>
+        </div>
+      </div>
+      <div class="day__body rev">
+        <div class="time">
+          <div class="ev key"><div class="ev__t">10:00</div><div class="ev__c"><span class="tag food">Market</span>仙台朝市<small>早市尋味</small></div></div>
+          <div class="ev"><div class="ev__t">12:00</div><div class="ev__c">仙台車站逛逛 · 最後採買</div></div>
+          <div class="ev"><div class="ev__t">14:00</div><div class="ev__c">仙台車站 → 仙台機場</div></div>
+          <div class="ev"><div class="ev__t">15:00</div><div class="ev__c">出境 · 登機</div></div>
+          <div class="ev key"><div class="ev__t">17:25 – 20:35</div><div class="ev__c"><span class="tag flight">Flight</span>星宇 JX863 SDJ → TPE<small>仙台 → 桃園</small></div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ===== HIGHLIGHTS ===== -->
+<section class="sec wrap">
+  <div class="hl rev">
+    <p class="eyebrow">Highlights 行程亮點</p>
+    <h2 class="hl__title">四種東北，一次收藏</h2>
+    <div class="hlgrid">
+      <div class="hlcard">
+        <div class="ic">雪</div>
+        <h3>安比高原滑雪</h3>
+        <p>日本東北最負盛名的粉雪聖地，連泊四晚滑好滑滿三整天，飯店直達雪場零通勤。</p>
+      </div>
+      <div class="hlcard">
+        <div class="ic">牛</div>
+        <h3>仙台牛舌巡禮</h3>
+        <p>名店連發，把仙台代表美食吃遍。</p>
+        <div class="list"><span>善治郎</span><span>閣 名掛丁</span><span>司 西口</span></div>
+      </div>
+      <div class="hlcard">
+        <div class="ic">社</div>
+        <h3>御朱印蒐集</h3>
+        <p>盛岡與仙台名社巡禮，一路收集限定御朱印。</p>
+        <div class="list"><span>盛岡八幡宮</span><span>大崎八幡宮</span><span>仙台東照宮</span></div>
+      </div>
+      <div class="hlcard">
+        <div class="ic">食</div>
+        <h3>東北味覺</h3>
+        <p>盛岡蕎麥、燒肉冷麵、炸豬排、仙台朝市，山海美食全制霸。</p>
+        <div class="list"><span>やまや蕎麥</span><span>盛楼閣</span><span>とんかつ牡丹</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOTELS ===== -->
+<section class="sec wrap">
+  <p class="eyebrow rev">Stay 住宿</p>
+  <h2 class="sec__title rev">兩處據點</h2>
+  <div class="hotels">
+    <div class="hotel rev">
+      <div class="loc">Appi Kogen · 安比高原</div>
+      <h3>ANA 皇冠假日度假飯店</h3>
+      <div class="jp">ANA Crowne Plaza Resort Appi Kogen</div>
+      <div class="meta">
+        <div><div class="n">4</div><div class="k">連泊 Nights</div></div>
+        <div><div class="n">2/24</div><div class="k">Check in</div></div>
+        <div><div class="n">2/28</div><div class="k">Check out</div></div>
+      </div>
+    </div>
+    <div class="hotel rev">
+      <div class="loc">Sendai · 仙台西口</div>
+      <h3>大和 ROYNET 飯店 PREMIER</h3>
+      <div class="jp">ダイワロイネットホテル仙台西口 PREMIER</div>
+      <div class="meta">
+        <div><div class="n">3</div><div class="k">泊 Nights</div></div>
+        <div><div class="n">2/23</div><div class="k">首夜</div></div>
+        <div><div class="n">2/28</div><div class="k">回程</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__title rev">粉雪、溫泉、牛舌<br>東北八日圓滿</div>
+    <div class="foot__route rev">TPE → SDJ → 盛岡 → 安比高原 → 仙台 → TPE</div>
+    <small>2026 / 02 / 23 – 03 / 02 · 星宇航空 STARLUX · 仙台・安比高原冬季行程</small>
+  </div>
+</footer>
+
+<script>
+// ---- scroll reveal ----
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.rev').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+
+// ---- active day nav ----
+const links=[...document.querySelectorAll('.daynav a')];
+const days=[...document.querySelectorAll('.day')];
+const spy=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+  const id=e.target.id;links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+id));
+}})},{rootMargin:'-45% 0px -50% 0px'});
+days.forEach(d=>spy.observe(d));
+
+// ---- hide daynav on hero, show after ----
+const nav=document.getElementById('daynav');
+const hero=document.querySelector('.hero');
+new IntersectionObserver(([e])=>{nav.style.transform=e.isIntersecting?'translateY(-101%)':'none';},{threshold:.15}).observe(hero);
+
+// ---- snow ----
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const c=document.getElementById('snow'),x=c.getContext('2d');let w,h,flakes;
+  function size(){w=c.width=innerWidth;h=c.height=innerHeight;
+    flakes=Array.from({length:Math.min(90,w/14|0)},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2.4+.6,d:Math.random()*.6+.2,s:Math.random()*.5+.2}));}
+  size();addEventListener('resize',size);
+  function draw(){x.clearRect(0,0,w,h);x.fillStyle='rgba(255,255,255,.9)';x.beginPath();
+    flakes.forEach(f=>{x.moveTo(f.x,f.y);x.arc(f.x,f.y,f.r,0,7)});x.fill();move();requestAnimationFrame(draw);}
+  function move(){flakes.forEach(f=>{f.y+=f.d;f.x+=Math.sin(f.y*.01)*f.s;if(f.y>h+5){f.y=-5;f.x=Math.random()*w}});}
+  draw();
+})();
+</script>
+</body>
+</html>
