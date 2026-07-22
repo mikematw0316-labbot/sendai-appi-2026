@@ -138,6 +138,8 @@ a{color:inherit;text-decoration:none}
 .day__thumb img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .day__thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(27,37,52,.28))}
 .day:hover .day__thumb img{transform:scale(1.06)}
+.day__thumb .credit{position:absolute;right:.5rem;bottom:.4rem;z-index:2;font-size:.6rem;letter-spacing:.04em;
+  color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.6)}
 .day__no{font-family:"Cormorant Garamond",serif;font-size:clamp(3.6rem,2rem+6vw,6.4rem);
   font-weight:500;color:var(--snow-blue);line-height:.85;letter-spacing:.02em}
 .day__date{margin-top:.4rem;font-size:1.05rem;font-weight:700;color:var(--ink);letter-spacing:.05em}
@@ -277,7 +279,7 @@ a{color:inherit;text-decoration:none}
       <h2 class="sec__title rev">雪國八日，<br>山與海的味覺之旅</h2>
       <p class="sec__lead rev">星宇直飛仙台，往北深入岩手・安比高原滑雪三日，回程沿途蒐集御朱印、大啖牛舌與東北美食。一趟結合 powder、溫泉與神社的冬季行程。</p>
     </div>
-    <div class="ov__pic rev"><img loading="lazy" src="img/sendai.jpg" alt="仙台光之盛典 · 定禪寺通燈飾" width="720" height="900" /></div>
+    <div class="ov__pic rev"><img loading="lazy" src="img/snowboard_carve.jpg" alt="安比高原單板滑雪 · 粉雪飛揚" width="720" height="900" /></div>
   </div>
   <div class="stats rev">
     <div class="stat"><div class="n">2</div><div class="t">城市據點</div></div>
@@ -320,7 +322,7 @@ a{color:inherit;text-decoration:none}
   <article class="day" id="d2">
     <div class="day__grid">
       <div class="day__head rev">
-        <div class="day__thumb"><img loading="lazy" src="img/morioka.jpg" alt="盛岡八幡宮" width="800" height="600" /></div>
+        <div class="day__thumb"><img loading="lazy" src="img/sakura_shrine.jpg" alt="盛岡櫻山神社 · 冬雪" width="800" height="600" /></div>
         <div class="day__no">02</div>
         <div class="day__date">2 / 24 <span>星期三</span></div>
         <div class="day__theme">仙台 → 盛岡 → 安比</div>
@@ -346,7 +348,7 @@ a{color:inherit;text-decoration:none}
   <article class="day" id="d3">
     <div class="day__grid">
       <div class="day__head rev">
-        <div class="day__thumb"><img loading="lazy" src="img/ski.jpg" alt="安比高原纜車俯瞰長雪道 · 晴日" width="800" height="600" /></div>
+        <div class="day__thumb"><img loading="lazy" src="img/ana_yellow.jpg" alt="ANA Crowne Plaza 安比高原 · 黃色塔樓雪景" width="800" height="600" /></div>
         <div class="day__no">03</div>
         <div class="day__date">2 / 25 <span>星期四</span></div>
         <div class="day__theme">安比高原 · 單板滑雪</div>
@@ -368,7 +370,7 @@ a{color:inherit;text-decoration:none}
   <article class="day" id="d4">
     <div class="day__grid">
       <div class="day__head rev">
-        <div class="day__thumb"><img loading="lazy" src="img/appi2.jpg" alt="安比高原雪場 · 逆光風雪" width="800" height="600" /></div>
+        <div class="day__thumb"><img loading="lazy" src="img/ski.jpg" alt="安比高原纜車俯瞰長雪道 · 晴日" width="800" height="600" /></div>
         <div class="day__no">04</div>
         <div class="day__date">2 / 26 <span>星期五</span></div>
         <div class="day__theme">安比高原 · 單板滑雪</div>
@@ -390,7 +392,7 @@ a{color:inherit;text-decoration:none}
   <article class="day" id="d5">
     <div class="day__grid">
       <div class="day__head rev">
-        <div class="day__thumb"><img loading="lazy" src="img/powder.jpg" alt="八幡平雪原雪景" width="800" height="600" /></div>
+        <div class="day__thumb"><img loading="lazy" src="img/shirakaba_yu.jpg" alt="安比高原 白樺之湯 · 夜間露天溫泉" width="800" height="600" /><span class="credit">照片 © appi.co.jp</span></div>
         <div class="day__no">05</div>
         <div class="day__date">2 / 27 <span>星期六</span></div>
         <div class="day__theme">安比高原 · 單板滑雪</div>
@@ -413,7 +415,7 @@ a{color:inherit;text-decoration:none}
   <article class="day" id="d6">
     <div class="day__grid">
       <div class="day__head rev">
-        <div class="day__thumb"><img loading="lazy" src="img/reimen.jpg" alt="盛岡冷麵" width="800" height="600" /></div>
+        <div class="day__thumb"><img loading="lazy" src="img/yakiniku.jpg" alt="盛楼閣 · 炭火燒肉" width="800" height="600" /></div>
         <div class="day__no">06</div>
         <div class="day__date">2 / 28 <span>星期日</span></div>
         <div class="day__theme">安比 → 盛岡 → 仙台</div>
@@ -439,7 +441,7 @@ a{color:inherit;text-decoration:none}
   <article class="day" id="d7">
     <div class="day__grid">
       <div class="day__head rev">
-        <div class="day__thumb"><img loading="lazy" src="img/shrine.jpg" alt="大崎八幡宮" width="800" height="600" /></div>
+        <div class="day__thumb"><img loading="lazy" src="img/pray.jpg" alt="神社參拜 · 合掌祈願側顏" width="800" height="600" /></div>
         <div class="day__no">07</div>
         <div class="day__date">3 / 1 <span>星期一</span></div>
         <div class="day__theme">仙台一日散策</div>
@@ -464,7 +466,7 @@ a{color:inherit;text-decoration:none}
   <article class="day" id="d8">
     <div class="day__grid">
       <div class="day__head rev">
-        <div class="day__thumb"><img loading="lazy" src="img/kaisendon.jpg" alt="仙台海鮮丼" width="800" height="600" /></div>
+        <div class="day__thumb"><img loading="lazy" src="img/asaichi.jpg" alt="仙台朝市 · 人潮熙攘" width="800" height="600" /></div>
         <div class="day__no">08</div>
         <div class="day__date">3 / 2 <span>星期二</span></div>
         <div class="day__theme">仙台 → 台北</div>
