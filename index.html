@@ -110,6 +110,12 @@ a{color:inherit;text-decoration:none}
   font-weight:600;display:flex;align-items:center;gap:.8rem;margin-bottom:1.1rem}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
 .sec__title{font-size:clamp(1.9rem,1.2rem+2.6vw,3.3rem);letter-spacing:.01em;margin-bottom:.6rem}
+.ovtitle{display:flex;flex-direction:column;gap:.4rem;line-height:1.02}
+.ovtitle .big{font-size:clamp(2.5rem,1.4rem+3.6vw,4.4rem);font-weight:700;letter-spacing:.05em;margin-bottom:.55rem}
+.ovtitle .row{display:flex;align-items:baseline;gap:.55rem}
+.ovtitle .mid{font-size:clamp(1.45rem,1rem+1.7vw,2.3rem);font-weight:700;color:var(--gold)}
+.ovtitle .dot{color:var(--ink-soft);font-size:1rem;transform:translateY(-.05em)}
+.ovtitle .sm{font-size:clamp(.95rem,.8rem+.6vw,1.25rem);color:var(--ink-soft);letter-spacing:.08em}
 .sec__lead{color:var(--ink-soft);max-width:44ch;font-size:1.02rem}
 
 /* ---------- overview ---------- */
@@ -276,7 +282,12 @@ a{color:inherit;text-decoration:none}
   <div class="ov">
     <div class="ov__text">
       <p class="eyebrow rev">Overview 行程總覽</p>
-      <h2 class="sec__title rev">雪國八日，<br>山與海的味覺之旅</h2>
+      <h2 class="sec__title ovtitle rev">
+        <span class="big">東北八日</span>
+        <span class="row"><span class="mid">動</span><span class="dot">・</span><span class="sm">馳雪</span></span>
+        <span class="row"><span class="mid">靜</span><span class="dot">・</span><span class="sm">參社</span></span>
+        <span class="row"><span class="mid">癒</span><span class="dot">・</span><span class="sm">暖湯美食</span></span>
+      </h2>
       <p class="sec__lead rev">星宇直飛仙台，往北深入岩手・安比高原滑雪三日，回程沿途蒐集御朱印、大啖牛舌與東北美食。一趟結合 powder、溫泉與神社的冬季行程。</p>
     </div>
     <div class="ov__pic rev"><img loading="lazy" src="img/snow_play.jpg" alt="安比雪場玩雪 · 雪花飛揚" width="720" height="900" /></div>
